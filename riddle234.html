@@ -31,7 +31,7 @@
 					<div class="pinBodyContent">
 						<div id="theInput">
 							<p>Enter Solution</p>
-							<input id="pass" oninput="reset()" type="password"  name="password">
+							<input id="pass" onkeydown="pressEnter()" oninput="reset()" type="password"  name="password">
 							<button onclick="convert()">
 								submit
 							</button>
@@ -50,6 +50,12 @@
 				box = document.getElementById("myBox"),
 				theInput = document.getElementById("theInput"),
 		    pass = document.getElementById("pass");
+
+		function pressEnter() {
+		    if(event.key === 'Enter') {
+		        convert()
+		    }
+		}
 
 		function reset()
 		{
