@@ -171,10 +171,18 @@ button:hover {
   }
 }
 
+.toDisappear {
+  animation: disappear 2s forwards;
+}
+
 .toAppear {
   opacity: 0;
-  fontSize: 20px;
+  font-size: 20px;
   font-family: "Oleo Script Swash Caps";
   animation: appear 4s forwards 1s;
+}
+
+.toShake {
+  animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
 }
 /**/
