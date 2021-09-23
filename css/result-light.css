@@ -171,4 +171,10 @@ button:hover {
   }
 }
 
+.toAppear {
+  opacity: 0;
+  fontSize: 20px;
+  font-family: "Oleo Script Swash Caps";
+  animation: appear 4s forwards 1s;
+}
 /**/
