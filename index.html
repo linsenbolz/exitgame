@@ -60,14 +60,14 @@
 		{
 			const myResult = XORCipher.decode(pass.value, "UlxBQ1ZQRWBcXUZHWFxdaFxGEVBSXxNVWF1XEUdbVBNdVEtHEVpdV1xBXFJHWFxdEVBfXkBWEUdcEUdbVBNHVFJQWVZBFkATXlVVWFBWHw=="); 
 			if (myResult.startsWith("correctSolution")) {
-				theInput.style.animation = 'disappear 2s forwards';
+				// theInput.style.animation = 'disappear 2s forwards';
 				dec.innerText = myResult.replace("correctSolution","");
-				dec.style.opacity = 0;
-				dec.style.fontSize = "20px";
-				dec.style.fontFamily = "Oleo Script Swash Caps";
-				dec.style.animation = 'appear 4s forwards 1s';
+				// dec.style.opacity = 0;
+				// dec.style.fontSize = "20px";
+				// dec.style.fontFamily = "Oleo Script Swash Caps";
+				// dec.style.animation = 'appear 4s forwards 1s';
 			} else {
-				box.style.animation = 'shake 0.8s cubic-bezier(.36,.07,.19,.97) both';
+				// box.style.animation = 'shake 0.8s cubic-bezier(.36,.07,.19,.97) both';
 				dec.innerText = "Try something else!";
 				setTimeout(function(){box.style.animation = "none";},1200)
 		  }
