@@ -10,11 +10,15 @@
 
   <link rel="stylesheet" type="text/css" href="css/result-light.css">
 	<script type="text/javascript" src="js/cypher.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Oleo+Script+Swash+Caps&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet"> 
+
 </head>
 
 <body>
 	<div class="wrap">
-		<div class="box">
+		<div class="box" id="myBox">
 			<div class="pinBox">			
 				<section class="pinHeader">
 					<div class="bullets-color c-red"></div>
@@ -25,31 +29,49 @@
 				
 				<section class="pinBody">
 					<div class="pinBodyContent">
-						<p>Enter Solution</p>
-						<input id="pass" oninput="convert()" type="password" name="password">
-						<p id="decode" class="txt-description">...</p>
+						<div id="theInput">
+							<p>Enter Solution</p>
+							<input id="pass" oninput="reset()" type="password"  name="password">
+							<button onclick="convert()">
+								submit
+							</button>
+						</div>
+						<p id="decode" class="txt-description"></p>
 					</div>
 				</section>
 			</div>		
 		</div>
 	</div>
 
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+    
   <script type="text/javascript">
 		var dec = document.getElementById("decode"),
+				box = document.getElementById("myBox"),
+				theInput = document.getElementById("theInput"),
 		    pass = document.getElementById("pass");
+
+		function reset()
+		{
+			dec.innerText = "";
+		}
 
 		function convert()
 		{
 			const myResult = XORCipher.decode(pass.value, "UlxBQ1ZQRWBcXUZHWFxdaFxGEVBSXxNVWF1XEUdbVBNdVEtHEVpdV1xBXFJHWFxdEVBfXkBWEUdcEUdbVBNHVFJQWVZBFkATXlVVWFBWHw=="); 
 			if (myResult.startsWith("correctSolution")) {
-				dec.innerText = myResult.replace("correctSolution","");	
+				theInput.style.animation = 'disappear 2s forwards';
+				dec.innerText = myResult.replace("correctSolution","");
+				dec.style.opacity = 0;
+				dec.style.fontSize = "20px";
+				dec.style.fontFamily = "Oleo Script Swash Caps";
+				dec.style.animation = 'appear 4s forwards 1s';
 			} else {
-				dec.innerText = "...";
-		  } 
+				box.style.animation = 'shake 0.8s cubic-bezier(.36,.07,.19,.97) both';
+				dec.innerText = "Try something else!";
+				setTimeout(function(){box.style.animation = "none";},1200)
+		  }
 		}
-
-		convert();
 	</script>
 
   <script>
