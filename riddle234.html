@@ -51,21 +51,26 @@
 				theInput = document.getElementById("theInput"),
 		    pass = document.getElementById("pass");
 
+		var solved = false;
+
 		function pressEnter() {
-		    if(event.key === 'Enter') {
+		    if (event.key === 'Enter' && !solved) {
 		        convert()
 		    }
 		}
 
 		function reset()
 		{
-			dec.innerText = "";
+			if (!solved) {
+				dec.innerText = "";
+			}
 		}
 
 		function convert()
 		{
 			const myResult = XORCipher.decode(pass.value, "UlxBQ1ZQRWBcXUZHWFxdaFxGEVBSXxNVWF1XEUdbVBNdVEtHEVpdV1xBXFJHWFxdEVBfXkBWEUdcEUdbVBNHVFJQWVZBFkATXlVVWFBWHw=="); 
 			if (myResult.startsWith("correctSolution")) {
+				solved = true;
 				theInput.classList.add("toDisappear")
 				dec.innerText = myResult.replace("correctSolution","");
 				dec.classList.add("toAppear");
